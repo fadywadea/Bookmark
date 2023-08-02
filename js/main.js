@@ -13,8 +13,8 @@ var bookmarks = [];
 
 if (localStorage.getItem("bookmarksList")) {
   bookmarks = JSON.parse(localStorage.getItem("bookmarksList"));
-  for (var x = 0; x < bookmarks.length; x++) {
-    displayBookmark(x);
+  for (var i = 0; i < bookmarks.length; i++) {
+    displayBookmark(i);
   }
 }
 
@@ -57,8 +57,8 @@ function displayBookmark(i) {
 
   visitBtn = document.querySelectorAll(".btn-visit");
   if (visitBtn) {
-    for (var l = 0; l < visitBtn.length; l++) {
-      visitBtn[l].addEventListener("click", function (e) {
+    for (var i = 0; i < visitBtn.length; i++) {
+      visitBtn[i].addEventListener("click", function (e) {
         visitWebsite(e);
       });
     }
@@ -83,10 +83,7 @@ function capitalize(e) {
 //  Submit btn
 
 submitBtn.addEventListener("click", function () {
-  if (
-    siteName.classList.contains("is-valid") &&
-    siteURL.classList.contains("is-valid")
-  ) {
+  if (siteName.classList.contains("is-valid") && siteURL.classList.contains("is-valid")) {
     var bookmark = {
       siteName: capitalize(siteName.value),
       siteURL: siteURL.value,
@@ -108,8 +105,8 @@ function deleteBookmark(e) {
   tableContent.innerHTML = "";
   var deletedIndex = e.target.dataset.index;
   bookmarks.splice(deletedIndex, 1);
-  for (var k = 0; k < bookmarks.length; k++) {
-    displayBookmark(k);
+  for (var i = 0; i < bookmarks.length; i++) {
+    displayBookmark(i);
   }
   localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
 }
