@@ -7,9 +7,9 @@ var deleteBtn;
 var visitBtn;
 var closeBtn = document.getElementById("closeBtn");
 var boxModal = document.querySelector(".box-info");
-var bookmarks;
+var bookmarks = [];
 
-// lma t3ml JSON.stringify b edk al t3ml  JSON.parse =) Eng: nourhan  
+// lma t3ml JSON.stringify b edk al shmal t3ml  JSON.parse =) Eng: nourhan  
 
 if (localStorage.getItem("bookmarksList")) {
   bookmarks = JSON.parse(localStorage.getItem("bookmarksList"));
