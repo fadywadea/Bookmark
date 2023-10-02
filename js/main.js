@@ -84,16 +84,20 @@ function capitalize(e) {
 
 submitBtn.addEventListener("click", function () {
   if (siteName.classList.contains("is-valid") && siteURL.classList.contains("is-valid")) {
+
     var bookmark = {
       siteName: capitalize(siteName.value),
       siteURL: siteURL.value,
     };
+
     bookmarks.push(bookmark);
     localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
     displayBookmark(bookmarks.length - 1);
     clearInput();
+
     siteName.classList.remove("is-valid");
     siteURL.classList.remove("is-valid");
+
   } else {
     boxModal.classList.replace("d-none", "d-flex");
   }
