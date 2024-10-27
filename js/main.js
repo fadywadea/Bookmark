@@ -115,7 +115,7 @@ function visitWebsite(e) {
 
 // validation regex
 var nameRegex = /^\w{3,}(\s+\w+)*$/;
-var urlRegex = /^https:\/\/[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\.com\/?$/;
+var urlRegex = /^(https?:\/\/)?([a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,})(:\d+)?(\/[a-zA-Z0-9._~%+-]*)*(\?[a-zA-Z0-9._~%&=+-]*)?(#[a-zA-Z0-9._~%&=+-]*)?$/;
 
 // validation siteName
 siteName.addEventListener("input", function () {
