@@ -16,7 +16,7 @@ main {
 
 main h1 {
   font-size: 50px;
-  font-family: "Pacifico", cursive;
+  font-family: "Pacifico";
   color: #352e28;
   isolation: isolate;
 }
@@ -44,8 +44,12 @@ main h1:hover::before {
 }
 
 .bookmark-body h2 {
-  font-family: "Righteous", cursive;
-  font-size: 25px;
+  font-family: "Righteous";
+  white-space: nowrap;
+  font-size: 1.4rem;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
   background-image: linear-gradient(to right, #3ca55c, #b5ac49);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -135,4 +139,10 @@ table {
 
 .logo {
   width: 40px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.2rem;
+  }
 }

@@ -1,4 +1,4 @@
-// global variables
+// Global Variables
 var siteName = document.getElementById("bookmarkName");
 var siteURL = document.getElementById("bookmarkURL");
 var submitBtn = document.getElementById("submitBtn");
@@ -9,7 +9,6 @@ var closeBtn = document.getElementById("closeBtn");
 var boxModal = document.querySelector(".box-info");
 var bookmarks = [];
 
-// lma t3ml JSON.stringify b edk al shmal t3ml  JSON.parse =) Eng: nourhan  
 
 if (localStorage.getItem("bookmarksList")) {
   bookmarks = JSON.parse(localStorage.getItem("bookmarksList"));
@@ -18,8 +17,7 @@ if (localStorage.getItem("bookmarksList")) {
   }
 }
 
-//  innerHTML to create a row for desc about bookmark  
-
+// InnerHTML to create a row for desc about bookmark
 function displayBookmark(i) {
   var newBookmark = `
               <tr>
@@ -43,7 +41,6 @@ function displayBookmark(i) {
 
 
   //  delete buttons
-
   deleteBtn = document.getElementsByClassName("btn-delete");
   if (deleteBtn) {
     for (var i = 0; i < deleteBtn.length; i++) {
@@ -54,7 +51,6 @@ function displayBookmark(i) {
   }
 
   // visit buttons
-
   visitBtn = document.querySelectorAll(".btn-visit");
   if (visitBtn) {
     for (var i = 0; i < visitBtn.length; i++) {
@@ -65,15 +61,13 @@ function displayBookmark(i) {
   }
 }
 
-//  Clear Input Function
-
+// Clear Input Function
 function clearInput() {
   siteName.value = "";
   siteURL.value = "";
 }
 
-//  
-
+// Converts the first character of the array to uppercase
 function capitalize(e) {
   var strArr = e.split("");
   strArr[0] = strArr[0].toUpperCase();
@@ -81,7 +75,6 @@ function capitalize(e) {
 }
 
 //  Submit btn
-
 submitBtn.addEventListener("click", function () {
   if (siteName.classList.contains("is-valid") && siteURL.classList.contains("is-valid")) {
 
@@ -103,8 +96,7 @@ submitBtn.addEventListener("click", function () {
   }
 });
 
-//  Delete Function
-
+// Delete Function
 function deleteBookmark(e) {
   tableContent.innerHTML = "";
   var deletedIndex = e.target.dataset.index;
@@ -115,32 +107,27 @@ function deleteBookmark(e) {
   localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
 }
 
-//  Visit Function
-
+// Visit Function
 function visitWebsite(e) {
   var websiteIndex = e.target.dataset.index;
   open(bookmarks[websiteIndex].siteURL);
 }
 
-//  validation regex
-
+// validation regex
 var nameRegex = /^\w{3,}(\s+\w+)*$/;
 var urlRegex = /^https:\/\/[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\.com\/?$/;
 
 // validation siteName
-
 siteName.addEventListener("input", function () {
   validate(siteName, nameRegex);
 });
 
 // validation siteURL
-
 siteURL.addEventListener("input", function () {
   validate(siteURL, urlRegex);
 });
 
 // if values valid make the class list is valid and  vice versa is invalid
-
 function validate(element, regex) {
   var testRegex = regex;
   if (testRegex.test(element.value)) {
@@ -152,19 +139,16 @@ function validate(element, regex) {
   }
 }
 
-//Close Function
-
+// Close Function
 function closeModal() {
   boxModal.classList.add("d-none");
 }
 
 
 // closed btn on click 
-
 closeBtn.addEventListener("click", closeModal);
 
-//close btn when press on Esc 
-
+// close btn when press on Esc 
 document.addEventListener("keydown", function (e) {
   if (e.key == "Escape") {
     closeModal();
@@ -172,7 +156,6 @@ document.addEventListener("keydown", function (e) {
 });
 
 // closed when click out side box
-
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("box-info")) {
     closeModal();
